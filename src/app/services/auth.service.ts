@@ -5,8 +5,10 @@ import { Observable } from 'rxjs/Rx';
 
 import { HttpClient } from '@angular/common/http';
 
+import { User } from '../classes/user';
 
-class LoginResponse {
+
+class Response {
     status: number;
 }
 
@@ -23,7 +25,7 @@ isLoggedIn() {
 constructor(private http: HttpClient) { }
 
 login(username: string, password: string, callback: any) {
-    this.http.post<LoginResponse>('/api/login', {username, password}).subscribe(data => {
+    this.http.post<Response>('/api/login', {username, password}).subscribe(data => {
         if (data.status === 100) {
             this.loggedIn = true;
         }
@@ -37,5 +39,16 @@ logout() {
         this.loggedIn = false;
     });
 }
+
+register(user: User, callback: any) {
+    this.http.post<Response>('/api/register', user).subscribe(data => {
+        if (data.status === 100) {
+            this.loggedIn = true;
+        }
+
+        callback(this.loggedIn);
+    })
+}
+
 
 }
