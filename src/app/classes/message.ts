@@ -1,3 +1,3 @@
-export class FeedItem {
+export class Message {
     constructor(public username: string, public message: string) {}
 }
