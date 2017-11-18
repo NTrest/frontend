@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.logout();
     this.authService.login(this.model.username, this.model.password, (loggedIn) => {
-      if (loggedIn) {
+      if (loggedIn === true) {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
       }
     });

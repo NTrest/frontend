@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
-import { AppRouting } from './app.routing';
+import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
 
@@ -11,7 +12,10 @@ import { FeedpublicComponent } from './routes/feedpublic/feedpublic.component';
 import { NotFoundComponent } from './routes/NotFound/NotFound.component';
 import { RegisterComponent } from './routes/register/register.component';
 
-import { AuthService} from './services/auth.service';
+import { AuthService } from './services/auth.service';
+import { AuthguardService } from './services/authguard.service';
+
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,9 +28,12 @@ import { AuthService} from './services/auth.service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRouting
+    AppRoutingModule,
+    HttpModule,
+
+    RouterModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
