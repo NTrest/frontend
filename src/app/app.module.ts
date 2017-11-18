@@ -17,6 +17,8 @@ import { AuthguardService } from './services/authguard.service';
 
 import { RouterModule } from '@angular/router';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     AppRoutingModule,
     HttpModule,
+    FormsModule,
 
     RouterModule,
   ],

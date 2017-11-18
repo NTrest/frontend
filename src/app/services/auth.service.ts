@@ -14,7 +14,7 @@ class LoginResponse {
 @Injectable()
 export class AuthService {
 
-loggedIn = false;
+loggedIn = true;
 
 isLoggedIn() {
     return this.loggedIn;
