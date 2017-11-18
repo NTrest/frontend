@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FeedItem } from '../../classes/feedItem';
+import { IMessage } from '../../classes/message';
 
 import {NgForm} from '@angular/forms';
 
@@ -11,7 +11,7 @@ import {NgForm} from '@angular/forms';
 })
 export class FeedpublicComponent implements OnInit {
   model: any = {};
-  feed: FeedItem[] = [];
+  feed: IMessage[] = [];
 
 
   constructor() { }
@@ -20,7 +20,7 @@ export class FeedpublicComponent implements OnInit {
   }
 
   sendmsg(): void {
-    this.feed.push({username: "USER", message: this.model.status});
+    this.feed.push({username: 'USER', message: this.model.status});
   }
 
 }
