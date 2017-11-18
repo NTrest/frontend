@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRouting } from './app.routing';
 
@@ -10,6 +11,8 @@ import { HomeComponent } from './routes/home/Home.component';
 import { FeedpublicComponent } from './routes/feedpublic/feedpublic.component';
 import { NotFoundComponent } from './routes/NotFound/NotFound.component';
 import { RegisterComponent } from './routes/register/register.component';
+
+import { AuthService} from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,10 @@ import { RegisterComponent } from './routes/register/register.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRouting
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
