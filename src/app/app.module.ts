@@ -9,6 +9,7 @@ import { LoginComponent } from './routes/login/login.component';
 import { HomeComponent } from './routes/home/Home.component';
 import { FeedpublicComponent } from './routes/feedpublic/feedpublic.component';
 import { NotFoundComponent } from './routes/NotFound/NotFound.component';
+import { RegisterComponent } from './routes/register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { NotFoundComponent } from './routes/NotFound/NotFound.component';
     LoginComponent,
     HomeComponent,
     FeedpublicComponent,
+    RegisterComponent,
     NotFoundComponent
   ],
   imports: [
