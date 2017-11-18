@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './routes/login/login.component';
 import { HomeComponent } from './routes/home/Home.component';
+import { FeedpublicComponent } from './routes/feedpublic/feedpublic.component';
 import { NotFoundComponent } from './routes/NotFound/NotFound.component';
 
 @NgModule({
@@ -14,6 +15,7 @@ import { NotFoundComponent } from './routes/NotFound/NotFound.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
+    FeedpublicComponent,
     NotFoundComponent
   ],
   imports: [
