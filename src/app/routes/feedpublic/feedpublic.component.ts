@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FeedItem } from '../../classes/feedItem';
+import { IMessage } from '../../classes/message';
+
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-feedpublic',
@@ -8,13 +10,17 @@ import { FeedItem } from '../../classes/feedItem';
   styleUrls: ['./feedpublic.component.less']
 })
 export class FeedpublicComponent implements OnInit {
-
-  feed: FeedItem[];
+  model: any = {};
+  feed: IMessage[] = [];
 
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  sendmsg(): void {
+    this.feed.push({username: 'USER', message: this.model.status});
   }
 
 }
