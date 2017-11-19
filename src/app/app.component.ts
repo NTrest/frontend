@@ -18,7 +18,10 @@ export class AppComponent {
       } else {
         locationService.stop();
       }
-
     });
+
+    if (authService.loggedIn) {
+      locationService.start();
+    }
   }
 }
