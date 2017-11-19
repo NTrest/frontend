@@ -1,2 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+<<<<<<< f425f36fef0c631f52ad64cd4e38277924da302b
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+=======
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+>>>>>>> working tree - s

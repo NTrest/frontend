@@ -18,6 +18,8 @@ import { AuthService } from './services/auth.service';
 import { AuthguardService } from './services/authguard.service';
 
 import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/layout/header/header.component';
@@ -40,7 +42,7 @@ import { FooterComponent } from './shared/layout/footer/footer.component';
     AppRoutingModule,
     HttpModule,
     FormsModule,
-
+    MatToolbarModule,
     RouterModule,
   ],
   providers: [AuthService, AuthguardService, LocationService],
