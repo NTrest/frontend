@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './routes/login/login.component';
 import { FeedpublicComponent } from './routes/feedpublic/feedpublic.component';
+import { FeedprivateComponent } from './routes/feedprivate/feedprivate.component';
 import { NotFoundComponent } from './routes/NotFound/NotFound.component';
 import { RegisterComponent } from './routes/register/register.component';
 
@@ -25,6 +26,7 @@ import { HeaderComponent } from './header/header.component';
     AppComponent,
     LoginComponent,
     FeedpublicComponent,
+    FeedprivateComponent,
     RegisterComponent,
     NotFoundComponent,
     HeaderComponent
