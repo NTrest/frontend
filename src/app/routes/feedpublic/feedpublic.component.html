@@ -4,8 +4,10 @@
   <br>
 </div>
 
-<form>
+<form #frm="ngForm">
   Post to public feed:<br>
-  <input type="text" name="publicststus"><br>
-  <button (click)="addMesssage()">Add</button>
+  <input type="text" name="publicststus" [(ngModel)]="model.status" #ctrl="ngModel"><br>
 </form>
+<div>
+  <button (click)="sendmsg()">Add</button>
+</div>

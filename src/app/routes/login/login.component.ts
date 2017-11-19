@@ -3,6 +3,8 @@ import { ActivatedRoute} from '@angular/router';
 
 import { AuthService } from '../../services/auth.service';
 
+import { User } from '../../classes/user';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

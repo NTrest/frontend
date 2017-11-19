@@ -1,12 +1,17 @@
 
   <div id="reg">
-    <form>
-      <label>Full Name</label><br>
-      <input type =”text” name=”fullname” /><br>
+    <form #ngForm>
+      <label>First Name</label><br>
+      <input type =”text” name="firstname" [(ngModel)]="model.firstname"/><br>
+      <label>Last Name</label><br>
+      <input type =”text” name=”lastname” [(ngModel)]="model.lastname"/><br>
       <label>Email</label><br>
-      <input type =”text” name=”demail” /><br>
+      <input type =”text” name=”demail” [(ngModel)]="model.demail"/><br>
+      <label>Username</label><br>
+      <input type =”text” name="username" [(ngModel)]="model.username"/><br>
       <label>Password</label><br>
-      <input type =”password” name=”dpassword” /><br>
+      <input type ="password" name=”dpassword” [(ngModel)]="model.dpassword"/><br>
       <button>Registration</button>
     </form>
   </div>
+
