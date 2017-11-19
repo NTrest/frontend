@@ -4,6 +4,7 @@ import { ActivatedRoute} from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 import { User } from '../../classes/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,17 +16,21 @@ export class LoginComponent implements OnInit {
 
   returnUrl: string;
 
-  constructor(private authService: AuthService, private route: ActivatedRoute) { }
+  constructor(private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.authService.logout();
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   login() {
-    this.authService.logout();
     this.authService.login(this.model.username, this.model.password, (loggedIn) => {
       if (loggedIn === true) {
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+        this.router.navigateByUrl(this.returnUrl);
+        return;
       }
+
+      //TODO: ERROR MESSAGE
     });
   }
 
