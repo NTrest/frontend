@@ -1,3 +1,4 @@
+import { LocationService } from './services/location.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -40,7 +41,7 @@ import { HeaderComponent } from './header/header.component';
 
     RouterModule,
   ],
-  providers: [AuthService, AuthguardService],
+  providers: [AuthService, AuthguardService, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

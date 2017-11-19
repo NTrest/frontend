@@ -6,12 +6,15 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Subscription} from 'rxjs/Subscription';
 import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/interval';
+
 
 @Injectable()
 export class LocationService {
     private pushSubscription: Subscription;
     private errorSubject = new Subject<PositionError>();
-    private errorObservable: Observable<String> = this.errorSubject
+    private errorObservable: Observable<String> = this.errorSubject.asObservable()
         .map(positionError => positionError.message);
 constructor(private http: HttpClient, private authService: AuthService) { }
 
