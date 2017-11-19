@@ -1,17 +1,19 @@
 
   <div id="reg">
-    <form #ngForm>
+    <form #ngForm (submit)="register()">
       <label>First Name</label><br>
-      <input type =”text” name="firstname" [(ngModel)]="model.firstname"/><br>
+      <input type =”text” name="firstname" [(ngModel)]="model.firstName"/><br>
       <label>Last Name</label><br>
-      <input type =”text” name=”lastname” [(ngModel)]="model.lastname"/><br>
+      <input type =”text” name=”lastname” [(ngModel)]="model.lastName"/><br>
       <label>Email</label><br>
-      <input type =”text” name=”demail” [(ngModel)]="model.demail"/><br>
+      <input type =”text” name=”demail” [(ngModel)]="model.email"/><br>
+      <label>Phone Number</label><br>
+      <input type =”text” name="phonenumber" [(ngModel)]="model.phoneNumber"/><br>
       <label>Username</label><br>
       <input type =”text” name="username" [(ngModel)]="model.username"/><br>
       <label>Password</label><br>
-      <input type ="password" name=”dpassword” [(ngModel)]="model.dpassword"/><br>
-      <button>Registration</button>
+      <input type ="password" name=”dpassword” [(ngModel)]="model.password"/><br>
+      <input type="submit" value="Registration">
     </form>
   </div>
 
