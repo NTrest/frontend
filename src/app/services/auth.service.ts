@@ -25,7 +25,7 @@ isLoggedIn() {
 constructor(private http: HttpClient) { }
 
 login(username: string, password: string, callback: any) {
-    this.http.post<Response>('/api/login', {username, password}).subscribe(data => {
+    this.http.post<Response>('http://10.135.254.125:3000/api/login', {username, password}).subscribe(data => {
         if (data.status === 100) {
             this.loggedIn = true;
         }
@@ -35,13 +35,13 @@ login(username: string, password: string, callback: any) {
 }
 
 logout() {
-    this.http.get('/api/logout').subscribe(data => {
+    this.http.get('http://10.135.254.125:3000/api/logout').subscribe(data => {
         this.loggedIn = false;
     });
 }
 
 register(user: User, callback: any) {
-    this.http.post<Response>('/api/register', user).subscribe(data => {
+    this.http.post<Response>('http://10.135.254.125:3000/api/register', user).subscribe(data => {
         if (data.status === 100) {
             this.loggedIn = true;
         }

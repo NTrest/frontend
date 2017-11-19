@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IMessage } from '../../classes/message';
+import { Message } from '../../classes/message';
 
 import {NgForm} from '@angular/forms';
 
@@ -11,7 +11,7 @@ import {NgForm} from '@angular/forms';
 })
 export class FeedpublicComponent implements OnInit {
   model: any = {};
-  feed: IMessage[] = [];
+  feed: Message[] = [];
 
 
   constructor() { }
