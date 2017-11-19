@@ -18,6 +18,7 @@ import { AuthguardService } from './services/authguard.service';
 import { RouterModule } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,9 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     FeedpublicComponent,
     RegisterComponent,
-    NotFoundComponent
-  ],
+    NotFoundComponent,
+    HeaderComponent
+],
   imports: [
     BrowserModule,
     HttpClientModule,
