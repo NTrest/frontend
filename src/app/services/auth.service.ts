@@ -47,7 +47,7 @@ register(user: User, callback: any) {
         }
 
         callback(this.loggedIn);
-    })
+    });
 }
 
 
