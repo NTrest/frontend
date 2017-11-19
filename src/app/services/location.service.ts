@@ -3,9 +3,16 @@ import { Location } from '../classes/location';
 import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 
+import {Observable} from 'rxjs/Observable';
+import {Subscription} from 'rxjs/Subscription';
+import {Subject} from 'rxjs/Subject';
+
 @Injectable()
 export class LocationService {
-
+    private pushSubscription: Subscription;
+    private errorSubject = new Subject<PositionError>();
+    private errorObservable: Observable<String> = this.errorSubject
+        .map(positionError => positionError.message);
 constructor(private http: HttpClient, private authService: AuthService) { }
 
 toRadians (angle) {
@@ -24,12 +31,38 @@ distance(lat, lng, lat0, lng0):
 
 
 // Preforms cos clientside;
-sendLocation(location: Location) {
-    location.latcos = Math.cos(this.toRadians(location.lat));
+sendLocation(coords: Coordinates) {
+    const location: Location = {latcos: Math.cos(this.toRadians(coords.latitude)), coords};
 
-    this.http.post('/api/location', location).subscribe((data) => {
-        
+    this.http.post<any>('/api/location', location).subscribe((data) => {
+        if (data.status === 2) {
+            this.authService.logout();
+            return;
+        }
+
+        if (<number>data.status !== 1) {
+            console.error('UNKNOWN ERROR');
+            return;
+        }
     });
+}
+
+positionError() {
+    return this.errorObservable;
+}
+
+start() {
+    this.pushSubscription = Observable.interval(30 * 60 * 1000).subscribe(() => {
+        navigator.geolocation.getCurrentPosition((pos) => {
+            this.sendLocation(pos.coords);
+        }, (posError) => {
+            this.errorSubject.next(posError);
+        });
+    });
+}
+
+stop() {
+    this.pushSubscription.unsubscribe();
 }
 
 }
