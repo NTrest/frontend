@@ -20,7 +20,8 @@ import { AuthguardService } from './services/authguard.service';
 import { RouterModule } from '@angular/router';
 
 import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './shared/layout/header/header.component';
+import { FooterComponent } from './shared/layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HeaderComponent } from './header/header.component';
     FeedprivateComponent,
     RegisterComponent,
     NotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
 ],
   imports: [
     BrowserModule,
