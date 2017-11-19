@@ -1,3 +1,4 @@
+import { LocationService } from './services/location.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,9 +18,12 @@ import { AuthService } from './services/auth.service';
 import { AuthguardService } from './services/authguard.service';
 
 import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './shared/layout/header/header.component';
+import { FooterComponent } from './shared/layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import { HeaderComponent } from './header/header.component';
     FeedprivateComponent,
     RegisterComponent,
     NotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
 ],
   imports: [
     BrowserModule,
@@ -37,10 +42,10 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     HttpModule,
     FormsModule,
-
+    MatToolbarModule,
     RouterModule,
   ],
-  providers: [AuthService, AuthguardService],
+  providers: [AuthService, AuthguardService, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

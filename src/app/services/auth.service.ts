@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 // tslint:disable-next-line:import-blacklist
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -21,10 +21,9 @@ export class AuthService {
 loggedIn = true;
 
 private loggedInSubject = new Subject<Boolean>();
-private loggedInObservable = this.loggedInSubject.map((loggedIn) => loggedIn);
 
 loginStatus() {
-    return this.loggedInObservable;
+    return this.loggedInSubject.asObservable();
 }
 
 isLoggedIn() {
