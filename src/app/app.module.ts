@@ -20,6 +20,7 @@ import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { SocketService } from './services/socket.service';
 
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/layout/header/header.component';
@@ -51,7 +52,7 @@ import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
     RouterModule,
     BrowserAnimationsModule,
   ],
-  providers: [AuthService, AuthguardService, LocationService],
+  providers: [AuthService, AuthguardService, LocationService, SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

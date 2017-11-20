@@ -17,7 +17,7 @@ canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     }
 
 
-    this.router.navigate(['login'], { queryParams: { returnUrl: state.url }});
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
     return false;
 }
 
