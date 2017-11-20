@@ -16,15 +16,18 @@ import { RegisterComponent } from './routes/register/register.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthguardService } from './services/authguard.service';
-
+import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SocketService } from './services/socket.service';
 
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
+import { BodyComponent } from './shared/layout/body/body.component';
+import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { FooterComponent } from './shared/layout/footer/footer.component';
     RegisterComponent,
     NotFoundComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    BodyComponent,
+    SidenavComponent,
 ],
   imports: [
     BrowserModule,
@@ -43,8 +48,9 @@ import { FooterComponent } from './shared/layout/footer/footer.component';
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    MatToolbarModule,
+    MaterialModule,
     RouterModule,
+    BrowserAnimationsModule,
   ],
   providers: [AuthService, AuthguardService, LocationService, SocketService],
   bootstrap: [AppComponent]
