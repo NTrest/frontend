@@ -1,52 +1,79 @@
 import { Injectable } from '@angular/core';
 
 // tslint:disable-next-line:import-blacklist
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 import { HttpClient } from '@angular/common/http';
 
 import { User } from '../classes/user';
 
+import { Subject } from 'rxjs/Subject';
+
+import {JwtHelper} from 'angular2-jwt';
+
 
 class Response {
-    status: number;
+    success: Boolean;
 }
 
 
 @Injectable()
 export class AuthService {
 
-loggedIn = true;
+
+jwtHelper = new JwtHelper();
+
+private loggedInSubject = new Subject<Boolean>();
+private username: string = "";
+
+loginStatus() {
+    return this.loggedInSubject.asObservable();
+}
 
 isLoggedIn() {
-    return this.loggedIn;
+    const token = localStorage.getItem('token');
+    return (token !== 'undefined')  && token != null && !this.jwtHelper.isTokenExpired(localStorage.getItem('token'));
 }
 
 constructor(private http: HttpClient) { }
 
 login(username: string, password: string, callback: any) {
-    this.http.post<Response>('http://10.135.254.125:3000/api/login', {username, password}).subscribe(data => {
-        if (data.status === 100) {
-            this.loggedIn = true;
+
+    this.http.post<any>('/api/login', {username, password}).subscribe(data => {
+        console.log(data);
+        if (data.success) {
+            localStorage.setItem('token', data.token);
+            this.loggedInSubject.next(true);
+            callback(true);
+
+            console.log("LOGGED IN");
+            return;
         }
 
-        callback(this.loggedIn);
+
+        callback(false);
     });
 }
 
 logout() {
-    this.http.get('http://10.135.254.125:3000/api/logout').subscribe(data => {
-        this.loggedIn = false;
+    this.http.get('/api/logout').subscribe(data => {
+        localStorage.removeItem('token');
+        this.loggedInSubject.next(false);
     });
 }
 
 register(user: User, callback: any) {
-    this.http.post<Response>('http://10.135.254.125:3000/api/register', user).subscribe(data => {
-        if (data.status === 100) {
-            this.loggedIn = true;
+    this.http.post<any>('/api/register', user).subscribe(data => {
+        console.log(data);
+        if (data.success) {
+            this.loggedInSubject.next(true);
+            localStorage.setItem('token', data.token);
+            callback(true);
+            return;
         }
 
-        callback(this.loggedIn);
+        callback(false);
+        this.loggedInSubject.next(false);
     });
 }
 

@@ -4,6 +4,8 @@ import { Message } from '../../classes/message';
 
 import {NgForm} from '@angular/forms';
 
+import {SocketService} from '../../services/socket.service';
+
 @Component({
   selector: 'app-feedpublic',
   templateUrl: './feedpublic.component.html',
@@ -14,13 +16,18 @@ export class FeedpublicComponent implements OnInit {
   feed: Message[] = [];
 
 
-  constructor() { }
+  constructor(private socketService: SocketService) {
+    socketService.on('public').subscribe(data => {
+      this.feed.push(data);
+    });
+  }
 
   ngOnInit() {
   }
 
   sendmsg(): void {
-    this.feed.push({username: 'USER', message: this.model.status});
+    //this.feed.push({username: 'USER', message: this.model.status});
+    this.socketService.emit('send', {mode: 0, message: this.model.status});
   }
 
 }
