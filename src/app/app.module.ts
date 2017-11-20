@@ -20,6 +20,7 @@ import { AuthguardService } from './services/authguard.service';
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { SocketService } from './services/socket.service';
 
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/layout/header/header.component';
@@ -45,7 +46,7 @@ import { FooterComponent } from './shared/layout/footer/footer.component';
     MatToolbarModule,
     RouterModule,
   ],
-  providers: [AuthService, AuthguardService, LocationService],
+  providers: [AuthService, AuthguardService, LocationService, SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

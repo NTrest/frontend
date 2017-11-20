@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from './services/auth.service';
 
+import { SocketService } from './services/socket.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,17 +13,29 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   title = 'app';
 
-  constructor(private authService: AuthService, private locationService: LocationService) {
+  constructor(private authService: AuthService, private locationService: LocationService, private socketService: SocketService) {
+    
+    socketService.connected$.subscribe((connected) => {
+      console.log("CONNECTED? " + connected);
+    });
+
+
     authService.loginStatus().subscribe((loggedIn) => {
       if (loggedIn) {
         locationService.start();
+        socketService.conenct();
       } else {
         locationService.stop();
+        socketService.disconnect();
       }
     });
 
-    if (authService.loggedIn) {
+    if (authService.isLoggedIn()) {
+      console.log('loggedin');
       locationService.start();
+      socketService.conenct();
     }
+
+
   }
 }

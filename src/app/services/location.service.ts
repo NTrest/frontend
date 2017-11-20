@@ -39,7 +39,7 @@ distance(lat, lng, lat0, lng0):
 sendLocation(coords: Coordinates) {
     const location: Location = {latcos: Math.cos(this.toRadians(coords.latitude)), coords};
 
-    this.http.post<any>('/api/location', location).subscribe((data) => {
+    this.http.post<any>('http://10.132.3.163:3000/api/location', location).subscribe((data) => {
         if (data.status === 2) {
             this.authService.logout();
             return;
@@ -66,6 +66,10 @@ start() {
 }
 
 stop() {
+    if (typeof(this.pushSubscription) === 'undefined') {
+        return;
+    }
+
     this.pushSubscription.unsubscribe();
     navigator.geolocation.clearWatch(this.watchId);
 }
