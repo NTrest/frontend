@@ -6,6 +6,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/interval';
 import * as io from 'socket.io-client';
 
+import {environment} from '../../environments/environment';
+
 
 @Injectable()
 export class SocketService {
@@ -14,7 +16,7 @@ export class SocketService {
     connected$ = this._connected$.asObservable();
 
     constructor() {
-        this.socket = io.connect('http://127.0.0.1:3000', {reconnection: true});
+        this.socket = io.connect(environment.server, {reconnection: true});
         this.socket.on('connect', () => {
             this._connected$.next(true);
             console.log('connected!!!');
