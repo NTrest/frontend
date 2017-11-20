@@ -19,13 +19,22 @@
       
   </mat-sidenav>
 
-  <app-body></app-body>
+  <mat-sidenav #userData align="end" [opened]="false" mode="over" class="right-side-nav">
+
+  </mat-sidenav>
+
   <router-outlet></router-outlet>
   <app-footer></app-footer>
   
   <div class="example-sidenav-content">
     <button type="button" mat-button (click)="sidenav.open()">
-      Open sidenav
+      Menu
+    </button>
+  </div>
+  
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="userData.open()">
+      Friends
     </button>
   </div>
   
