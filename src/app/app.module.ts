@@ -25,7 +25,6 @@ import { SocketService } from './services/socket.service';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
-import { BodyComponent } from './shared/layout/body/body.component';
 import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
 
 
@@ -39,7 +38,6 @@ import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
     NotFoundComponent,
     HeaderComponent,
     FooterComponent,
-    BodyComponent,
     SidenavComponent,
 ],
   imports: [
