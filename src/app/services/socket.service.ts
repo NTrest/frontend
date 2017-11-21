@@ -16,7 +16,8 @@ export class SocketService {
     connected$ = this._connected$.asObservable();
 
     constructor() {
-        this.socket = io.connect(environment.server, {reconnection: true});
+        console.log(localStorage.getItem('token'));
+        this.socket = io.connect(environment.server, {reconnection: true, query: `token=${localStorage.getItem('token')}`});
         this.socket.on('connect', () => {
             this._connected$.next(true);
             console.log('connected!!!');
@@ -25,6 +26,7 @@ export class SocketService {
     }
 
     conenct() {
+        this.socket = io.connect(environment.server, {reconnection: true, query: `token=${localStorage.getItem('token')}`});
         this.socket.connect();
     }
 
