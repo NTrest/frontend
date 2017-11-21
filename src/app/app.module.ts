@@ -16,14 +16,20 @@ import { RegisterComponent } from './routes/register/register.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthguardService } from './services/authguard.service';
-
+import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { SocketService } from './services/socket.service';
 
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
+import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
+
+import { UsersidenavviewComponent} from './shared/friends/usersidenavview/usersidenavview.component';
+
+import { UserinteractionService } from './services/userinteraction.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,9 @@ import { FooterComponent } from './shared/layout/footer/footer.component';
     RegisterComponent,
     NotFoundComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SidenavComponent,
+    UsersidenavviewComponent,
 ],
   imports: [
     BrowserModule,
@@ -42,10 +50,16 @@ import { FooterComponent } from './shared/layout/footer/footer.component';
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    MatToolbarModule,
+    MaterialModule,
     RouterModule,
+    BrowserAnimationsModule,
   ],
-  providers: [AuthService, AuthguardService, LocationService],
+  providers: [AuthService,
+    AuthguardService,
+    LocationService,
+    SocketService,
+    UserinteractionService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

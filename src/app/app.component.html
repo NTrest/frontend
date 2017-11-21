@@ -1,12 +1,46 @@
-<<<<<<< f425f36fef0c631f52ad64cd4e38277924da302b
-<a [routerLink]="['/register']">Register</a>&emsp;
-<a [routerLink]="['/login']">Login</a>&emsp;
-<a [routerLink]="['/feedpublic']">Public Feed</a>&emsp;
-<a [routerLink]="['/feedprivate']">Private Feed</a>&emsp;
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav class="example-sidenav">
+    <ul>
+      <li>
+        <a [routerLink]="['/register']">Register</a>&emsp;
+      </li>  
+      <li>
+        <a [routerLink]="['/login']">Login</a>&emsp;
+      </li>  
+      <li>
+        <a [routerLink]="['/feedpublic']">Public Feed</a>&emsp;
+      </li>  
+      <li>
+        <a [routerLink]="['/feedprivate']">Private Feed</a>&emsp;
+      </li>  
+      
+    </ul>
+      
+  </mat-sidenav>
+
+  <mat-sidenav #userData align="end" [opened]="false" mode="over" class="right-side-nav">
+    <app-usersidenavview></app-usersidenavview>
+  </mat-sidenav>
+  <mat-toolbar>
+    <span>Ntrest</span>
+  </mat-toolbar>
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="sidenav.open()">
+      Menu
+    </button>
+  </div>
+
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
 
 
-=======
->>>>>>> working tree - s
-<app-header></app-header>
-<app-footer></app-footer>
-<router-outlet></router-outlet>
+  
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="userData.open()">
+      Friends
+    </button>
+  </div>
+  
+</mat-sidenav-container>
+
+
