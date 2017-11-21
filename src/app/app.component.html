@@ -1,6 +1,6 @@
 <app-header></app-header>
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav class="example-sidenav">
+  <mat-sidenav #menum class="example-sidenav">
     <ul>
       <li>
         <a [routerLink]="['/register']">Register</a>&emsp;
@@ -18,25 +18,24 @@
     </ul>
       
   </mat-sidenav>
-<<<<<<< HEAD
 
-  <mat-sidenav #userData align="end" [opened]="false" mode="over" class="right-side-nav">
-
+  <mat-sidenav #friendsm align="end" [opened]="false" mode="over" class="right-side-nav">
+    <li>
+      <a [routerLink]="['/register']">Register</a>&emsp;
+    </li>  
   </mat-sidenav>
 
-=======
->>>>>>> 9fddf62a29a69594feb19ca96a48287f41bf3727
   <router-outlet></router-outlet>
   <app-footer></app-footer>
   
   <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="sidenav.open()">
+    <button type="button" mat-button (click)="menum.open()">
       Menu
     </button>
   </div>
-  
+
   <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="userData.open()">
+    <button type="button" mat-button (click)="friendsm.open()">
       Friends
     </button>
   </div>
