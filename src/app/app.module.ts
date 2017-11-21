@@ -27,6 +27,9 @@ import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
 
+import { UsersidenavviewComponent} from './shared/friends/usersidenavview/usersidenavview.component';
+
+import { UserinteractionService } from './services/userinteraction.service';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,7 @@ import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
     HeaderComponent,
     FooterComponent,
     SidenavComponent,
+    UsersidenavviewComponent,
 ],
   imports: [
     BrowserModule,
@@ -50,7 +54,12 @@ import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
     RouterModule,
     BrowserAnimationsModule,
   ],
-  providers: [AuthService, AuthguardService, LocationService, SocketService],
+  providers: [AuthService,
+    AuthguardService,
+    LocationService,
+    SocketService,
+    UserinteractionService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
