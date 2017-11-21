@@ -1,9 +1,3 @@
-<div *ngFor="let item of feed">
-  <span>{{item.username}}</span>
-  <div>{{item.message}}</div>
-  <br>
-</div>
-
 <form #frm="ngForm">
   Post to public feed:<br>
   <input type="text" name="publicststus" [(ngModel)]="model.status" #ctrl="ngModel"><br>
@@ -11,3 +5,10 @@
 <div>
   <button (click)="sendmsg()">Post</button>
 </div>
+
+<div *ngFor="let item of feed.slice().reverse()">
+  <span>{{item.username}}</span>
+  <div>{{item.message}}</div>
+  <br>
+</div>
+
