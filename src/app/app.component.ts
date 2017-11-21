@@ -25,6 +25,7 @@ export class AppComponent {
         socketService.disconnect();
         locationService.start();
         socketService.conenct();
+        console.log("Just logged in");
       } else {
         locationService.stop();
         socketService.disconnect();
