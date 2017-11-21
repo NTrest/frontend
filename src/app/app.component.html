@@ -1,4 +1,3 @@
-<app-header></app-header>
 <mat-sidenav-container class="example-container">
   <mat-sidenav #sidenav class="example-sidenav">
     <ul>
@@ -22,15 +21,20 @@
   <mat-sidenav #userData align="end" [opened]="false" mode="over" class="right-side-nav">
     <app-usersidenavview></app-usersidenavview>
   </mat-sidenav>
-
-  <router-outlet></router-outlet>
-  <app-footer></app-footer>
-  
+  <mat-toolbar>
+    <span>Ntrest</span>
+  </mat-toolbar>
   <div class="example-sidenav-content">
     <button type="button" mat-button (click)="sidenav.open()">
       Menu
     </button>
   </div>
+
+
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+
+
   
   <div class="example-sidenav-content">
     <button type="button" mat-button (click)="userData.open()">
