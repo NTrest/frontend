@@ -24,14 +24,16 @@ export class SocketService {
         });
         this.socket.on('disconnect', () => this._connected$.next(false));
     }
-
+    
     conenct() {
-        this.socket = io.connect(environment.server, {reconnection: true, query: `token=${localStorage.getItem('token')}`});
+        this.socket.disconnect();
+        this.socket.io = new io.Manager(environment.server, {reconnection: true, query: `token=${localStorage.getItem('token')}`});
         this.socket.connect();
     }
 
     disconnect() {
         this.socket.disconnect();
+
     }
 
     on(event: string): Observable<any> {

@@ -22,6 +22,7 @@ export class AppComponent {
 
     authService.loginStatus().subscribe((loggedIn) => {
       if (loggedIn) {
+        socketService.disconnect();
         locationService.start();
         socketService.conenct();
       } else {
@@ -32,6 +33,7 @@ export class AppComponent {
 
     if (authService.isLoggedIn()) {
       console.log('loggedin');
+      socketService.disconnect();
       locationService.start();
       socketService.conenct();
     }
