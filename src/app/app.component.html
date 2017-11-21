@@ -21,7 +21,9 @@
   <mat-sidenav #userData align="end" [opened]="false" mode="over" class="right-side-nav">
     <app-usersidenavview></app-usersidenavview>
   </mat-sidenav>
-  <span>Ntrest</span>
+  <mat-toolbar>
+    <span>Ntrest</span>
+  </mat-toolbar>
   <div class="example-sidenav-content">
     <button type="button" mat-button (click)="sidenav.open()">
       Menu
