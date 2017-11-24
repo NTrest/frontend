@@ -9,7 +9,7 @@ import { User } from '../classes/user';
 
 import { Subject } from 'rxjs/Subject';
 
-import {JwtHelper} from 'angular2-jwt';
+import { JwtHelper } from 'angular2-jwt';
 
 
 class Response {
@@ -24,7 +24,7 @@ export class AuthService {
 jwtHelper = new JwtHelper();
 
 private loggedInSubject = new Subject<Boolean>();
-private username: string = "";
+private username: string = '';
 
 loginStatus() {
     return this.loggedInSubject.asObservable();
@@ -46,7 +46,7 @@ login(username: string, password: string, callback: any) {
             this.loggedInSubject.next(true);
             callback(true);
 
-            console.log("LOGGED IN");
+            console.log('LOGGED IN');
             return;
         }
 
