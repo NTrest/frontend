@@ -16,11 +16,12 @@ import { RegisterComponent } from './routes/register/register.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthguardService } from './services/authguard.service';
-import { MaterialModule } from './material.module';
-import { RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SocketService } from './services/socket.service';
+import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/layout/header/header.component';
@@ -48,11 +49,13 @@ import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    MaterialModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatCheckboxModule,
     RouterModule,
     BrowserAnimationsModule,
   ],
-  providers: [AuthService, AuthguardService, LocationService, SocketService],
+  providers: [AuthService, AuthguardService, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
