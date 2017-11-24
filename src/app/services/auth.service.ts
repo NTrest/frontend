@@ -66,8 +66,8 @@ register(user: User, callback: any) {
     this.http.post<any>('/api/register', user).subscribe(data => {
         console.log(data);
         if (data.success) {
-            this.loggedInSubject.next(true);
             localStorage.setItem('token', data.token);
+            this.loggedInSubject.next(true);
             callback(true);
             return;
         }

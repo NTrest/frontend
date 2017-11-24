@@ -26,9 +26,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
-import { BodyComponent } from './shared/layout/body/body.component';
 import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
 
+import { UsersidenavviewComponent} from './shared/friends/usersidenavview/usersidenavview.component';
+
+import { UserinteractionService } from './services/userinteraction.service';
 
 @NgModule({
   declarations: [
@@ -40,8 +42,8 @@ import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
     NotFoundComponent,
     HeaderComponent,
     FooterComponent,
-    BodyComponent,
     SidenavComponent,
+    UsersidenavviewComponent,
 ],
   imports: [
     BrowserModule,
@@ -55,7 +57,12 @@ import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
     RouterModule,
     BrowserAnimationsModule,
   ],
-  providers: [AuthService, AuthguardService, LocationService],
+  providers: [AuthService,
+    AuthguardService,
+    LocationService,
+    SocketService,
+    UserinteractionService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

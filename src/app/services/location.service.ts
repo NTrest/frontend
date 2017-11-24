@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Location } from '../classes/location';
 import { AuthService } from './auth.service';
+import { SocketService } from './socket.service';
 import { Injectable } from '@angular/core';
 
 import {Observable} from 'rxjs/Observable';
@@ -18,7 +19,7 @@ export class LocationService {
         .map(positionError => positionError.message);
     private pos$: any = {};
     private watchId: any;
-constructor(private http: HttpClient, private authService: AuthService) { }
+constructor(private http: HttpClient, private authService: AuthService, private socketService: SocketService) { }
 
 toRadians (angle) {
   return angle * (Math.PI / 180);
@@ -39,7 +40,7 @@ distance(lat, lng, lat0, lng0):
 sendLocation(coords: Coordinates) {
     const location: Location = {latcos: Math.cos(this.toRadians(coords.latitude)), coords};
 
-    this.http.post<any>('http://10.132.3.163:3000/api/location', location).subscribe((data) => {
+    /*this.http.post<any>('http://10.132.3.163:3000/api/location', location).subscribe((data) => {
         if (data.status === 2) {
             this.authService.logout();
             return;
@@ -49,7 +50,9 @@ sendLocation(coords: Coordinates) {
             console.error('UNKNOWN ERROR');
             return;
         }
-    });
+    });*/
+
+    this.socketService.emit('locationUpdate', location);
 }
 
 positionError() {
