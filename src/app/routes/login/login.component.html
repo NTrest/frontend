@@ -1,15 +1,33 @@
-<form (submit)="login()" #f="ngForm">
-        <div class="input">
-            <label>Username</label>
-            <input type="text" [(ngModel)]="model.username" name="username">
-        </div>
-        <div class="input">
-            <label>Password</label>
-            <input type="password" [(ngModel)]="model.password" name="password">
-        </div>
-        <div class="input">
-                <input type="checkbox" name="remember" value="remember" checked> Keep Me Signed In<br><br>
-            <input type="submit" value="Login">
-        </div>
- </form>
+<!-- <form (submit)="login()" #f="ngForm">
+    <div class="input">
+        <label>Username</label>
+        <input type="text" [(ngModel)]="model.username" name="username">
+    </div>
+    <div class="input">
+        <label>Password</label>
+        <input type="password" [(ngModel)]="model.password" name="password">
+    </div>
+    <div class="input">
+            <input type="checkbox" name="remember" value="remember" checked> Keep Me Signed In<br><br>
+        <input type="submit" value="Login">
+    </div>
+    <div class="input">
+        <input type="submit" value="Register">
+    </div>
+ </form> -->
 
+ <div class="example-container">
+    <mat-form-field>
+      <input matInput placeholder="Input">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <textarea matInput placeholder="Textarea"></textarea>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-select placeholder="Select">
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>

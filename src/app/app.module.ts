@@ -1,36 +1,39 @@
-import { LocationService } from './services/location.service';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+// Angular Imports
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { NgModule } from '@angular/core';
 
+// Module Imports
+import { MaterialModule } from './material.module';
+
+
+// App imports
 import { AppRoutingModule } from './app.routing';
-
 import { AppComponent } from './app.component';
 
-import { LoginComponent } from './routes/login/login.component';
-import { FeedpublicComponent } from './routes/feedpublic/feedpublic.component';
+// Functionality imports
 import { FeedprivateComponent } from './routes/feedprivate/feedprivate.component';
+import { FeedpublicComponent } from './routes/feedpublic/feedpublic.component';
 import { NotFoundComponent } from './routes/NotFound/NotFound.component';
 import { RegisterComponent } from './routes/register/register.component';
+import { LoginComponent } from './routes/login/login.component';
 
-import { AuthService } from './services/auth.service';
+// Services imports
+import { UserinteractionService } from './services/userinteraction.service';
 import { AuthguardService } from './services/authguard.service';
+import { LocationService } from './services/location.service';
+import { SocketService } from './services/socket.service';
+import { AuthService } from './services/auth.service';
 
-import { RouterModule } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { FormsModule } from '@angular/forms';
+// Layout imports
+import { UsersidenavviewComponent} from './shared/friends/usersidenavview/usersidenavview.component';
+import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
-import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
-
-import { UsersidenavviewComponent} from './shared/friends/usersidenavview/usersidenavview.component';
-
-import { UserinteractionService } from './services/userinteraction.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,7 @@ import { UserinteractionService } from './services/userinteraction.service';
     FooterComponent,
     SidenavComponent,
     UsersidenavviewComponent,
+    MaterialModule
 ],
   imports: [
     BrowserModule,
@@ -51,13 +55,11 @@ import { UserinteractionService } from './services/userinteraction.service';
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatCheckboxModule,
     RouterModule,
     BrowserAnimationsModule,
   ],
-  providers: [AuthService,
+  providers: [
+    AuthService,
     AuthguardService,
     LocationService,
     SocketService,

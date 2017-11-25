@@ -14,7 +14,7 @@ export class AppComponent {
   title = 'app';
 
   constructor(private authService: AuthService, private locationService: LocationService, private socketService: SocketService) {
-    
+
     socketService.connected$.subscribe((connected) => {
       console.log("CONNECTED? " + connected);
     });
@@ -25,7 +25,7 @@ export class AppComponent {
         socketService.disconnect();
         locationService.start();
         socketService.conenct();
-        console.log("Just logged in");
+        console.log('Just logged in');
       } else {
         locationService.stop();
         socketService.disconnect();
