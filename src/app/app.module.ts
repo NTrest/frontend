@@ -16,6 +16,7 @@ import { RegisterComponent } from './routes/register/register.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthguardService } from './services/authguard.service';
+import { SocketService } from './services/socket.service';
 
 import { RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
