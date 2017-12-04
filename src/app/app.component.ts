@@ -15,6 +15,11 @@ export class AppComponent {
 
   constructor(private authService: AuthService, private locationService: LocationService, private socketService: SocketService) {
     
+
+    locationService.positionError().subscribe((err) => {
+      console.error(err);
+    });
+
     socketService.connected$.subscribe((connected) => {
       console.log("CONNECTED? " + connected);
     });
