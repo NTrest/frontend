@@ -63,7 +63,7 @@ start() {
     this.watchId = navigator.geolocation.watchPosition((pos) => {
         this.pos$ = pos;
     }, (posError) => this.errorSubject.next(posError));
-    this.pushSubscription = Observable.interval(100).subscribe(() => {
+    this.pushSubscription = Observable.interval(1000 * 60 * 1.1).subscribe(() => {
         if (!!this.pos$.coords) {
             this.sendLocation(this.pos$.coords);
         }
