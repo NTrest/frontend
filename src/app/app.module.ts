@@ -19,15 +19,14 @@ import { AuthguardService } from './services/authguard.service';
 import { SocketService } from './services/socket.service';
 
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
+
+import { MaterialModule } from './app.material';
 
 import { UsersidenavviewComponent} from './shared/friends/usersidenavview/usersidenavview.component';
 
@@ -52,11 +51,8 @@ import { UserinteractionService } from './services/userinteraction.service';
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatCheckboxModule,
+    MaterialModule,
     RouterModule,
-    BrowserAnimationsModule,
   ],
   providers: [AuthService,
     AuthguardService,

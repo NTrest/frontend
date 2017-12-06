@@ -17,6 +17,7 @@ export class LocationService {
     private errorSubject = new Subject<PositionError>();
     private pos$: any = {};
     private watchId: any;
+    private firstSend = true;
 constructor(private http: HttpClient, private authService: AuthService, private socketService: SocketService) { }
 
 toRadians (angle) {
@@ -62,6 +63,9 @@ positionError() {
 start() {
     this.watchId = navigator.geolocation.watchPosition((pos) => {
         this.pos$ = pos;
+        if (this.firstSend) {
+            this.sendLocation(this.pos$.coords);
+        }
     }, (posError) => this.errorSubject.next(posError));
     this.pushSubscription = Observable.interval(1000 * 60 * 1.1).subscribe(() => {
         if (!!this.pos$.coords) {

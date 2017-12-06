@@ -1,4 +1,4 @@
-<form (submit)="login()" #f="ngForm">
+<form #f="ngForm">
         <div class="input">
             <label>Username</label>
             <input type="text" [(ngModel)]="model.username" name="username">
@@ -8,8 +8,8 @@
             <input type="password" [(ngModel)]="model.password" name="password">
         </div>
         <div class="input">
-                <input type="checkbox" name="remember" value="remember" checked> Keep Me Signed In<br><br>
-            <input type="submit" value="Login">
+            <input type="checkbox" name="remember" value="remember" checked> Keep Me Signed In<br><br>
+            <button mat-button (click)="login()">Login</button>
         </div>
  </form>
 
