@@ -1,4 +1,39 @@
 
+
+  <div id="reg">
+    <form #ngForm (submit)="register()">
+        <mat-form-field class="example-full-width">
+            <textarea matInput type =”text” name="firstname" [(ngModel)]="model.firstName" placeholder="First Name"></textarea>
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <textarea matInput type =”text” name="lastname" [(ngModel)]="model.lastName" placeholder="Last Name"></textarea>
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <textarea matInput type =”email” name=”demail” [(ngModel)]="model.email" placeholder="Email"></textarea>
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+              <textarea matInput type =”number” name="phonenumber" [(ngModel)]="model.phoneNumber" placeholder="Phone Number"></textarea>
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+              <textarea matInput type =”text” name="username" [(ngModel)]="model.username" placeholder="Username"></textarea>
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+              <textarea matInput type ="password" name=”dpassword” [(ngModel)]="model.password" placeholder="Password"></textarea>
+          </mat-form-field>
+        
+          <button mat-raised-button color="primary" (click)="register()">Create Account
+          </button>
+    </form>
+  </div>
+
+
+
+<!-- Original Registration before Mat
   <div id="reg">
     <form #ngForm (submit)="register()">
       <label>First Name</label><br>
@@ -6,9 +41,9 @@
       <label>Last Name</label><br>
       <input type =”text” name=”lastname” [(ngModel)]="model.lastName"/><br>
       <label>Email</label><br>
-      <input type =”text” name=”demail” [(ngModel)]="model.email"/><br>
+      <input type =”email” name=”demail” [(ngModel)]="model.email"/><br>
       <label>Phone Number</label><br>
-      <input type =”text” name="phonenumber" [(ngModel)]="model.phoneNumber"/><br>
+      <input type =”number” name="phonenumber" [(ngModel)]="model.phoneNumber"/><br>
       <label>Username</label><br>
       <input type =”text” name="username" [(ngModel)]="model.username"/><br>
       <label>Password</label><br>
@@ -16,4 +51,4 @@
       <input type="submit" value="Create Account">
     </form>
   </div>
-
+-->
