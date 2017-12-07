@@ -21,6 +21,7 @@
       <a mat-list-item [routerLink]="['/login']" *ngIf="this.authService.isLoggedIn()">Logout</a>&emsp;
       <a mat-list-item [routerLink]="['/register']" *ngIf="!this.authService.isLoggedIn()">Register</a>&emsp;
       <a mat-list-item [routerLink]="['/feedpublic']">Public Feed</a>&emsp;
+      <a mat-list-item [routerLink]="['/contacts']" *ngIf="this.authService.isLoggedIn()">Contacts</a>&emsp;
     </mat-nav-list>
       
   </mat-sidenav>
