@@ -11,8 +11,7 @@ import { DmComponent } from './routes/dm/dm.component';
 
 import { AuthguardService } from './services/authguard.service';
 
-
-
+import { DmlistComponent } from './routes/dmlist/dmlist.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'feedpublic', pathMatch: 'full' },
@@ -21,6 +20,7 @@ const appRoutes: Routes = [
     { path: 'feedprivate', component: FeedprivateComponent, canActivate: [AuthguardService]},
     { path: 'register', component: RegisterComponent},
     { path: 'dm/:user', component: DmComponent},
+    { path: 'contacts', component: DmlistComponent},
     { path: '**', component: NotFoundComponent }, // always last
   ];
 

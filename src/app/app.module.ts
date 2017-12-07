@@ -35,6 +35,8 @@ import { UserinteractionService } from './services/userinteraction.service';
 
 import { DmService } from './services/dm.service';
 
+import { DmlistComponent } from './routes/dmlist/dmlist.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +49,8 @@ import { DmService } from './services/dm.service';
     FooterComponent,
     SidenavComponent,
     UsersidenavviewComponent,
-    DmComponent
+    DmComponent,
+    DmlistComponent
 ],
   imports: [
     BrowserModule,
