@@ -1,5 +1,5 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav class="nav-sidenav">
+  <mat-sidenav style="background-color:;" #sidenav class="nav-sidenav">
     <!--<ul>
       <li>
         <a [routerLink]="['/register']">Register</a>&emsp;
@@ -17,10 +17,12 @@
     </ul>-->
  
     <mat-nav-list>
+      <span><b>Ntrest</b></span>
       <a mat-list-item [routerLink]="['/login']" *ngIf="!this.authService.isLoggedIn()">Login</a>&emsp;
       <a mat-list-item [routerLink]="['/login']" *ngIf="this.authService.isLoggedIn()">Logout</a>&emsp;
       <a mat-list-item [routerLink]="['/register']" *ngIf="!this.authService.isLoggedIn()">Register</a>&emsp;
-      <a mat-list-item [routerLink]="['/feedpublic']">Public Feed</a>&emsp;
+      <a mat-list-item [routerLink]="['/feedpublic']">Public Feed</a>
+      <a mat-list-item [routerLink]="['/dm']">Messages</a>
     </mat-nav-list>
       
   </mat-sidenav>
