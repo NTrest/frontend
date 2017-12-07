@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DmComponent implements OnInit, AfterViewChecked {
 
-  model: any = {};
+  message = 'THIS';
   user: string;
 
   @ViewChild('scrollMe') scroller: ElementRef;
@@ -29,7 +29,6 @@ export class DmComponent implements OnInit, AfterViewChecked {
   }
 
   constructor(private route: ActivatedRoute, private dmService: DmService) {
-    console.log("TEST");
     this.route.params.subscribe(params => {
       this.user = params.user;
     });
@@ -43,6 +42,6 @@ export class DmComponent implements OnInit, AfterViewChecked {
   }
 
   sendmsg() {
-    this.dmService.sendDM('test', 'fucking hell!!!');
+    this.dmService.sendDM(this.user, this.message);
   }
 }
