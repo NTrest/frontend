@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DmComponent implements OnInit, AfterViewChecked {
 
-  message = 'THIS';
+  message = '';
   user: string;
 
   @ViewChild('scrollMe') scroller: ElementRef;
