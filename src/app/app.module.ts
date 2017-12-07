@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
+import { DmComponent } from './routes/dm/dm.component';
 
 import { MaterialModule } from './app.material';
 
@@ -44,6 +45,7 @@ import { UserinteractionService } from './services/userinteraction.service';
     FooterComponent,
     SidenavComponent,
     UsersidenavviewComponent,
+    DmComponent
 ],
   imports: [
     BrowserModule,
