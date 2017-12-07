@@ -28,17 +28,25 @@
   <mat-sidenav #userData align="end" [opened]="false" mode="over" class="right-side-nav">
     <app-usersidenavview></app-usersidenavview>
   </mat-sidenav>
-  <mat-toolbar color="primary">
-    <div class="example-sidenav-content">
-      <button mat-button (click)="sidenav.open()">
-          <i class="material-icons">menu</i>
-      </button>
-    </div>
-    <span>Ntrest</span>
-  </mat-toolbar>
 
-  <router-outlet></router-outlet>
-  <app-footer></app-footer>
+  <div fxFlexFill fxLayout="column">
+    <div>
+      <mat-toolbar color="primary">
+        <div class="example-sidenav-content">
+          <button mat-button (click)="sidenav.open()">
+              <i class="material-icons">menu</i>
+          </button>
+        </div>
+        <span>Ntrest</span>
+      </mat-toolbar>
+    </div>
+
+    <div fxFlex="100%">
+        <router-outlet class="hidden-router"></router-outlet>
+    </div>
+
+    <app-footer fxFlex></app-footer>
+  </div>
 
 
   

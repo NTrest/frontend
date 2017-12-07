@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -58,6 +59,7 @@ import { DmlistComponent } from './routes/dmlist/dmlist.component';
     AppRoutingModule,
     HttpModule,
     FormsModule,
+    FlexLayoutModule,
     MaterialModule,
     RouterModule,
   ],
