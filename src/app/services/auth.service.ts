@@ -24,7 +24,7 @@ export class AuthService {
 jwtHelper = new JwtHelper();
 
 private loggedInSubject = new Subject<Boolean>();
-private username: string = '';
+username: string = '';
 
 loginStatus() {
     return this.loggedInSubject.asObservable();

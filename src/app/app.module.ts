@@ -33,6 +33,8 @@ import { UsersidenavviewComponent} from './shared/friends/usersidenavview/usersi
 
 import { UserinteractionService } from './services/userinteraction.service';
 
+import { DmService } from './services/dm.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +63,7 @@ import { UserinteractionService } from './services/userinteraction.service';
     LocationService,
     SocketService,
     UserinteractionService,
+    DmService
   ],
   bootstrap: [AppComponent]
 })
