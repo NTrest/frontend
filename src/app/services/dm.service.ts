@@ -24,10 +24,12 @@ export class DmService {
 
         const _list = [];
 
-        const keys = this.dmMap.keys();
+        let keys = Array.from(this.dmMap.keys());
+        keys = keys.splice(0, keys.length);
         // tslint:disable-next-line:forin
         for (const key in keys) {
             _list.push(keys[key]);
+            console.log(keys[key]);
         }
 
         return _list;
@@ -53,7 +55,7 @@ export class DmService {
     }
 
     getDms() {
-        this.socketService.emit("getdms");
+        this.socketService.emit('getdms');
     }
 
 constructor(private authService: AuthService, private socketService: SocketService) {
