@@ -1,10 +1,21 @@
-<p>
-  dm works!
-  <button mat-raised-button color="primary" (click)="sendmsg()">Send Message
-    </button>
-</p>
-
-
-<div *ngFor="let msg of messages">
-  {{msg.from}} -> {{msg.to}}: {{msg.message}}
+<div class="chatbox">
+  <div fxFlex fxLayout="column" class="column">
+    <div #scrollMe class="container chatArea" fxFlex="100%">
+        <div *ngFor="let msg of messages">
+            {{msg.from}} -> {{msg.to}}: {{msg.message}}
+        </div>
+    </div>
+    <div class="messageArea" fxFlex>
+      <form>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-form-field style="width:100%" fxFlex="80%">
+            <input matInput placeholder="Message">
+          </mat-form-field>
+            <span class="submit" fxFlex>
+              <button mat-button (click)="this.sendmsg()">Submit</button>
+            </span>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

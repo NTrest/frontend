@@ -52,6 +52,10 @@ export class DmService {
         this.addDM(this.createDM(user, message));
     }
 
+    getDms() {
+        this.socketService.emit("getdms");
+    }
+
 constructor(private authService: AuthService, private socketService: SocketService) {
     socketService.on('recvdm').subscribe((dm) => {
         this.addDM(dm);
