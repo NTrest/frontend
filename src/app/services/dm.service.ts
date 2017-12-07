@@ -63,7 +63,9 @@ constructor(private authService: AuthService, private socketService: SocketServi
         }
     });
 
-    this.addDM({to: 'demo1', from: 'test', message: 'TEST'});
+    this.dms('test').push({from: 'demo1', to: 'test', message: 'TESTING 123'});
+    this.dms('test').push({from: 'test', to: 'demo1', message: 'Hello World'});
+    //this.addDM({to: 'demo1', from: 'test', message: 'TEST'});
  }
 
 

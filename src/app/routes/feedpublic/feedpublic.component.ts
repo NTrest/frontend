@@ -37,6 +37,8 @@ export class FeedpublicComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.feed.length = 0;
+    this.socketService.emit('getMsgs');
   }
 
   sendmsg(): void {

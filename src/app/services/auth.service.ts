@@ -24,7 +24,10 @@ export class AuthService {
 jwtHelper = new JwtHelper();
 
 private loggedInSubject = new Subject<Boolean>();
-username: string = '';
+get username() {
+    const token = localStorage.getItem('token');
+    return this.jwtHelper.decodeToken(token).username;
+}
 
 loginStatus() {
     return this.loggedInSubject.asObservable();
