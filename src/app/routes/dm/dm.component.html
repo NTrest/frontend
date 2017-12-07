@@ -2,7 +2,7 @@
   <div fxFlex fxLayout="column" class="column">
     <div #scrollMe class="container chatArea" fxFlex="100%">
         <div *ngFor="let msg of messages">
-            {{msg.from}} -> {{msg.to}}: {{msg.message}}
+            {{msg.from}}: {{msg.message}}
         </div>
     </div>
     <div class="messageArea" fxFlex>
