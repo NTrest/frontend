@@ -1,11 +1,9 @@
 <form #frm="ngForm">
-  Post to public feed:<br>
-  <input type="text" name="publicststus" [(ngModel)]="model.status" #ctrl="ngModel"><br>
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" name="publicststus" [(ngModel)]="model.status" #ctrl="ngModel" placeholder="Post to Public Feed">
+    </mat-form-field>
 </form>
-<div>
-  <button (click)="sendmsg()">Post</button>
-</div>
-
+<button mat-button color="primary"(click)="sendmsg()">Post</button>
 <div *ngFor="let item of feed.slice().reverse()">
   <mat-card>
     <span>{{item.username}}</span>
