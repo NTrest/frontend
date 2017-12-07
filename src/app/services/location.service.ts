@@ -65,6 +65,7 @@ start() {
         this.pos$ = pos;
         if (this.firstSend) {
             this.sendLocation(this.pos$.coords);
+            this.firstSend = false;
         }
     }, (posError) => this.errorSubject.next(posError));
     this.pushSubscription = Observable.interval(1000 * 60 * 1.1).subscribe(() => {
