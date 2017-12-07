@@ -63,14 +63,12 @@ constructor(private authService: AuthService, private socketService: SocketServi
         this.addDM(dm);
     });
     socketService.on('recvdms').subscribe((dms) => {
+        this.dmMap.clear();
         // tslint:disable-next-line:forin
         for (const dm in dms) {
             this.addDM(dms[dm]);
         }
     });
-
-    this.dms('test').push({from: 'demo1', to: 'test', message: 'TESTING 123'});
-    this.dms('test').push({from: 'test', to: 'demo1', message: 'Hello World'});
     //this.addDM({to: 'demo1', from: 'test', message: 'TEST'});
  }
 
