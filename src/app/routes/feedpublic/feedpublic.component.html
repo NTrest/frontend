@@ -1,6 +1,6 @@
 <form #frm="ngForm">
     <mat-form-field class="example-full-width">
-      <input matInput type="text" name="publicststus" [(ngModel)]="model.status" #ctrl="ngModel" placeholder="Post to Public Feed">
+      <input matInput #msgs type="text" name="publicststus" [(ngModel)]="model.status" #ctrl="ngModel" placeholder="Post to Public Feed">
     </mat-form-field>
 </form>
 <button mat-button color="primary"(click)="sendmsg()">Post</button>
