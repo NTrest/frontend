@@ -1,19 +1,53 @@
 
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <input matInput type ="text" name="firstname" [(ngModel)]="model.firstName" placeholder="First Name">
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput type ="text" name="lastname" [(ngModel)]="model.lastName" placeholder="Last Name">
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput type ="email" name="demail" [(ngModel)]="model.email" placeholder="Email">
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+              <input matInput type ="number" name="phonenumber" [(ngModel)]="model.phoneNumber" placeholder="Phone Number">
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+              <input matInput type ="text" name="username" [(ngModel)]="model.username" placeholder="Username">
+          </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+              <input matInput type="password" name="password" [(ngModel)]="model.password" placeholder="Password">
+          </mat-form-field>
+        
+          <button mat-raised-button color="primary" (click)="register()">Create Account
+          </button>
+    </form>
+
+
+
+
+<!-- Original Registration before Mat
   <div id="reg">
     <form #ngForm (submit)="register()">
       <label>First Name</label><br>
-      <input type =”text” name="firstname" [(ngModel)]="model.firstName"/><br>
+      <input type ="text" name="firstname" [(ngModel)]="model.firstName"/><br>
       <label>Last Name</label><br>
-      <input type =”text” name=”lastname” [(ngModel)]="model.lastName"/><br>
+      <input type ="text" name="lastname" [(ngModel)]="model.lastName"/><br>
       <label>Email</label><br>
-      <input type =”text” name=”demail” [(ngModel)]="model.email"/><br>
+      <input type ="email" name="demail" [(ngModel)]="model.email"/><br>
       <label>Phone Number</label><br>
-      <input type =”text” name="phonenumber" [(ngModel)]="model.phoneNumber"/><br>
+      <input type ="number" name="phonenumber" [(ngModel)]="model.phoneNumber"/><br>
       <label>Username</label><br>
-      <input type =”text” name="username" [(ngModel)]="model.username"/><br>
+      <input type ="text" name="username" [(ngModel)]="model.username"/><br>
       <label>Password</label><br>
-      <input type ="password" name=”dpassword” [(ngModel)]="model.password"/><br>
+      <input type ="password" name="dpassword" [(ngModel)]="model.password"/><br>
       <input type="submit" value="Create Account">
     </form>
   </div>
-
+-->

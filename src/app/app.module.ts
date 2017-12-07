@@ -16,20 +16,26 @@ import { RegisterComponent } from './routes/register/register.component';
 
 import { AuthService } from './services/auth.service';
 import { AuthguardService } from './services/authguard.service';
-import { MaterialModule } from './material.module';
+import { SocketService } from './services/socket.service';
+
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { SocketService } from './services/socket.service';
 
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { SidenavComponent } from './shared/layout/sidenav/sidenav.component';
+import { DmComponent } from './routes/dm/dm.component';
+
+import { MaterialModule } from './app.material';
 
 import { UsersidenavviewComponent} from './shared/friends/usersidenavview/usersidenavview.component';
 
 import { UserinteractionService } from './services/userinteraction.service';
+
+import { DmService } from './services/dm.service';
+
+import { DmlistComponent } from './routes/dmlist/dmlist.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +49,8 @@ import { UserinteractionService } from './services/userinteraction.service';
     FooterComponent,
     SidenavComponent,
     UsersidenavviewComponent,
+    DmComponent,
+    DmlistComponent
 ],
   imports: [
     BrowserModule,
@@ -52,13 +60,13 @@ import { UserinteractionService } from './services/userinteraction.service';
     FormsModule,
     MaterialModule,
     RouterModule,
-    BrowserAnimationsModule,
   ],
   providers: [AuthService,
     AuthguardService,
     LocationService,
     SocketService,
     UserinteractionService,
+    DmService
   ],
   bootstrap: [AppComponent]
 })

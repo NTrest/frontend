@@ -20,6 +20,20 @@ export class FeedpublicComponent implements OnInit {
     socketService.on('public').subscribe(data => {
       this.feed.push(data);
     });
+
+    socketService.on('locationError').subscribe(data => {
+      console.log("location error");
+    });
+
+    socketService.connected$.subscribe((connected) => {
+      if (connected) {
+        socketService.once('locationAccept').then(() => {
+          console.log('locationAccept');
+            this.feed.length = 0;
+            socketService.emit('getMsgs');
+        });
+      }
+    });
   }
 
   ngOnInit() {

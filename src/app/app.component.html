@@ -1,6 +1,6 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav class="example-sidenav">
-    <ul>
+  <mat-sidenav #sidenav class="nav-sidenav">
+    <!--<ul>
       <li>
         <a [routerLink]="['/register']">Register</a>&emsp;
       </li>  
@@ -14,33 +14,40 @@
         <a [routerLink]="['/feedprivate']">Private Feed</a>&emsp;
       </li>  
       
-    </ul>
+    </ul>-->
+ 
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/login']" *ngIf="!this.authService.isLoggedIn()">Login</a>&emsp;
+      <a mat-list-item [routerLink]="['/login']" *ngIf="this.authService.isLoggedIn()">Logout</a>&emsp;
+      <a mat-list-item [routerLink]="['/register']" *ngIf="!this.authService.isLoggedIn()">Register</a>&emsp;
+      <a mat-list-item [routerLink]="['/feedpublic']">Public Feed</a>&emsp;
+    </mat-nav-list>
       
   </mat-sidenav>
 
   <mat-sidenav #userData align="end" [opened]="false" mode="over" class="right-side-nav">
     <app-usersidenavview></app-usersidenavview>
   </mat-sidenav>
-  <mat-toolbar>
+  <mat-toolbar color="primary">
+    <div class="example-sidenav-content">
+      <button mat-button (click)="sidenav.open()">
+          <i class="material-icons">menu</i>
+      </button>
+    </div>
     <span>Ntrest</span>
   </mat-toolbar>
-  <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="sidenav.open()">
-      Menu
-    </button>
-  </div>
 
   <router-outlet></router-outlet>
   <app-footer></app-footer>
 
 
   
-  <div class="example-sidenav-content">
+ <!-- <div class="example-sidenav-content">
     <button type="button" mat-button (click)="userData.open()">
       Friends
     </button>
   </div>
-  
+-->
 </mat-sidenav-container>
 
 

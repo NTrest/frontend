@@ -8,13 +8,18 @@ import { SocketService } from './services/socket.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.less']
 })
 export class AppComponent {
   title = 'app';
 
-  constructor(private authService: AuthService, private locationService: LocationService, private socketService: SocketService) {
+  constructor(public authService: AuthService, private locationService: LocationService, private socketService: SocketService) {
     
+
+    locationService.positionError().subscribe((err) => {
+      console.error(err);
+    });
+
     socketService.connected$.subscribe((connected) => {
       console.log("CONNECTED? " + connected);
     });

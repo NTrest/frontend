@@ -15,10 +15,9 @@ import 'rxjs/add/observable/interval';
 export class LocationService {
     private pushSubscription: Subscription;
     private errorSubject = new Subject<PositionError>();
-    private errorObservable: Observable<String> = this.errorSubject.asObservable()
-        .map(positionError => positionError.message);
     private pos$: any = {};
     private watchId: any;
+    private firstSend = true;
 constructor(private http: HttpClient, private authService: AuthService, private socketService: SocketService) { }
 
 toRadians (angle) {
@@ -38,7 +37,7 @@ distance(lat, lng, lat0, lng0):
 
 // Preforms cos clientside;
 sendLocation(coords: Coordinates) {
-    const location: Location = {latcos: Math.cos(this.toRadians(coords.latitude)), coords};
+    const location: any = {latcos: Math.cos(this.toRadians(coords.latitude)), lat: coords.latitude, lon: coords.longitude};
 
     /*this.http.post<any>('http://10.132.3.163:3000/api/location', location).subscribe((data) => {
         if (data.status === 2) {
@@ -53,16 +52,24 @@ sendLocation(coords: Coordinates) {
     });*/
 
     this.socketService.emit('locationUpdate', location);
+    console.log("Location sent");
 }
 
 positionError() {
-    return this.errorObservable;
+    return this.errorSubject.asObservable()
+    .map(positionError => positionError.message);
 }
 
 start() {
-    this.watchId = navigator.geolocation.watchPosition((pos) => this.pos$, (posError) => this.errorSubject.next(posError));
-    this.pushSubscription = Observable.interval(10000).subscribe(() => {
-        if (this.pos$.coords) {
+    this.watchId = navigator.geolocation.watchPosition((pos) => {
+        this.pos$ = pos;
+        if (this.firstSend) {
+            this.sendLocation(this.pos$.coords);
+            this.firstSend = false;
+        }
+    }, (posError) => this.errorSubject.next(posError));
+    this.pushSubscription = Observable.interval(1000 * 60 * 1.1).subscribe(() => {
+        if (!!this.pos$.coords) {
             this.sendLocation(this.pos$.coords);
         }
     });
