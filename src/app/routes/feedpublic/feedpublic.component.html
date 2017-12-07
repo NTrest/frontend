@@ -7,8 +7,12 @@
 </div>
 
 <div *ngFor="let item of feed.slice().reverse()">
-  <span>{{item.username}}</span>
-  <div>{{item.message}}</div>
+  <mat-card
+  > <span>{{item.username}}</span>
+    <div>{{item.message}}</div>
+  </mat-card>
+
+  
   <br>
 </div>
 
