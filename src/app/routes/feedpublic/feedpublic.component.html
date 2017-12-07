@@ -1,9 +1,9 @@
 <form #frm="ngForm">
   Post to public feed:<br>
-  <input type="text" name="publicststus" [(ngModel)]="model.status" #ctrl="ngModel"><br>
+  <input #msgs id=input2 type="text" name="publicststus" [(ngModel)]="model.status" #ctrl="ngModel"><br>
 </form>
 <div>
-  <button (click)="sendmsg()">Post</button>
+  <button (click)="sendmsg();">Post</button>
 </div>
 
 <div *ngFor="let item of feed.slice().reverse()">

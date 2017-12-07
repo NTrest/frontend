@@ -5,6 +5,8 @@ import { Message } from '../../classes/message';
 import {NgForm} from '@angular/forms';
 
 import {SocketService} from '../../services/socket.service';
+import { ViewChild } from '@angular/core';
+import { ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-feedpublic',
@@ -14,6 +16,8 @@ import {SocketService} from '../../services/socket.service';
 export class FeedpublicComponent implements OnInit {
   model: any = {};
   feed: Message[] = [];
+
+  @ViewChild('msgs') msgs: ElementRef;
 
 
   constructor(private socketService: SocketService) {
@@ -42,6 +46,7 @@ export class FeedpublicComponent implements OnInit {
   sendmsg(): void {
     //this.feed.push({username: 'USER', message: this.model.status});
     this.socketService.emit('send', {mode: 0, message: this.model.status});
+    this.msgs.nativeElement.value = '';
   }
 
 }
