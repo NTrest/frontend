@@ -18,8 +18,8 @@ export class DmComponent implements OnInit {
     });
   }
 
- messages(): Array<any> {
-    return []; //return this.dmService.dms(this.user);
+ get messages(): Array<any> {
+    return this.dmService.dms(this.user);
   }
   ngOnInit() {
   }
