@@ -1,7 +1,6 @@
 
 
-  <div id="reg">
-    <form #ngForm (submit)="register()">
+    <form class="example-form">
         <mat-form-field class="example-full-width">
             <input matInput type ="text" name="firstname" [(ngModel)]="model.firstName" placeholder="First Name">
           </mat-form-field>
@@ -29,7 +28,7 @@
           <button mat-raised-button color="primary" (click)="register()">Create Account
           </button>
     </form>
-  </div>
+
 
 
 
