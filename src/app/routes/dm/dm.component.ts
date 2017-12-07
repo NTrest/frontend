@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DmComponent implements OnInit {
 
+  model: any = {};
   user: string;
 
   constructor(private route: ActivatedRoute, private dmService: DmService) {
@@ -24,4 +25,7 @@ export class DmComponent implements OnInit {
   ngOnInit() {
   }
 
+  sendmsg() {
+    this.dmService.sendDM('test', 'fucking hell!!!');
+  }
 }
