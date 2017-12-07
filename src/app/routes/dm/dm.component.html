@@ -9,10 +9,10 @@
       <form>
         <div fxLayout="row" fxLayoutAlign="start center">
           <mat-form-field style="width:100%" fxFlex="80%">
-            <input matInput placeholder="Message">
+            <input matInput placeholder="Message" [(ngModel)]="message" name="message">
           </mat-form-field>
             <span class="submit" fxFlex>
-              <button mat-button (click)="this.sendmsg()">Submit</button>
+              <button mat-button (click)="sendmsg()">Submit</button>
             </span>
         </div>
       </form>

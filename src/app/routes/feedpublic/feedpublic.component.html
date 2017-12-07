@@ -10,7 +10,7 @@
     <mat-card-title> {{item.username}} </mat-card-title>
     <mat-card-subtitle>{{item.message}}</mat-card-subtitle>
     <mat-card-actions>
-        <button mat-button>Message</button>
+        <button mat-button (click)="gotodms(item.username)">Message</button>
       </mat-card-actions>
   </mat-card>
 

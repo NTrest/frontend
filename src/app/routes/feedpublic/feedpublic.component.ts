@@ -8,6 +8,8 @@ import {SocketService} from '../../services/socket.service';
 import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-feedpublic',
   templateUrl: './feedpublic.component.html',
@@ -20,7 +22,7 @@ export class FeedpublicComponent implements OnInit {
   @ViewChild('msgs') msgs: ElementRef;
 
 
-  constructor(private socketService: SocketService) {
+  constructor(private socketService: SocketService, private router: Router) {
     socketService.on('public').subscribe(data => {
       this.feed.push(data);
     });
@@ -51,4 +53,7 @@ export class FeedpublicComponent implements OnInit {
     this.msgs.nativeElement.value = '';
   }
 
+  gotodms(user: string) {
+    this.router.navigate(['/dm', user]);
+  }
 }
