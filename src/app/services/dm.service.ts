@@ -61,7 +61,7 @@ export class DmService {
 constructor(private authService: AuthService, private socketService: SocketService) {
     socketService.on('recvdm').subscribe((dm) => {
         this.addDM(dm);
-    });
+    })
     socketService.on('recvdms').subscribe((dms) => {
         this.dmMap.clear();
         // tslint:disable-next-line:forin
