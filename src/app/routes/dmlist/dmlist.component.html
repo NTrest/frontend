@@ -1,3 +1,9 @@
-<p>
-  dmlist works!
-</p>
+
+
+<mat-nav-list>
+    <div *ngFor="let user of users">
+        <a mat-list-item (click)="navigate(user)">{{user}}</a>
+    </div>
+</mat-nav-list>
+
+
