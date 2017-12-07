@@ -1,15 +1,15 @@
 <form #f="ngForm">
     <mat-form-field class="example-full-width">
-        <textarea matInput type =”text” name="username" [(ngModel)]="model.username" placeholder="Username"></textarea>
+        <input matInput type ="text" name="username" [(ngModel)]="model.username" placeholder="Username">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <textarea matInput type =”text” name="password" [(ngModel)]="model.password" placeholder="Password"></textarea>
+        <input matInput type="password" name="password" [(ngModel)]="model.password" placeholder="Password">
       </mat-form-field>
 
-    <input type="checkbox" name="remember" value="remember" checked> Keep Me Signed In<br><br>
+    <mat-checkbox type="checkbox" name="remember" value="remember" checked> Keep Me Signed In</mat-checkbox>
    
-    <button mat-raised-button color="primary" (click)="Login()">Login
+    <button mat-raised-button color="primary" (click)="login()">Login
     </button>
 </form>
 
