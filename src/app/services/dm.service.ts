@@ -12,7 +12,7 @@ export class DmService {
     public dms(user: string) {
         let chats = this.dmMap.get(user);
 
-        if (!!chats) {
+        if (!chats) {
             this.dmMap.set(user, []);
             chats = this.dmMap.get(user);
         }
@@ -62,6 +62,8 @@ constructor(private authService: AuthService, private socketService: SocketServi
             this.addDM(dms[dm]);
         }
     });
+
+    this.addDM({to: 'demo1', from: 'test', message: 'TEST'});
  }
 
 

@@ -52,7 +52,7 @@ sendLocation(coords: Coordinates) {
     });*/
 
     this.socketService.emit('locationUpdate', location);
-    console.log("Location sent");
+    console.log('Location sent');
 }
 
 positionError() {
