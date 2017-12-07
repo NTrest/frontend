@@ -22,7 +22,17 @@ export class FeedpublicComponent implements OnInit {
     });
 
     socketService.on('locationError').subscribe(data => {
-      console.log(data);
+      console.log("location error");
+    });
+
+    socketService.connected$.subscribe((connected) => {
+      if (connected) {
+        socketService.once('locationAccept').then(() => {
+          console.log('locationAccept');
+            this.feed.length = 0;
+            socketService.emit('getMsgs');
+        });
+      }
     });
   }
 

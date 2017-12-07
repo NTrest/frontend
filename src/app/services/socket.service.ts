@@ -48,6 +48,14 @@ export class SocketService {
         });
     }
 
+    once(event: string): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.socket.once(event, data => {
+                resolve(data);
+            });
+        });
+    }
+
     emit(event: string, data?: any) {
         console.log(data);
         this.socket.emit(event, data);
